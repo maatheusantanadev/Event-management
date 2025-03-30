@@ -3,18 +3,13 @@
 namespace Database\Factories\Models;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
-use Illuminate\Support\Str; // Não se esqueça de importar o Str para gerar senhas aleatórias
+use Illuminate\Support\Str; 
 
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Users\User>
  */
 class UsersFactory extends Factory
 {
-    /**
-     * Define the model's default state.
-     *
-     * @return array<string, mixed>
-     */
     public function definition(): array
     {
         return [
