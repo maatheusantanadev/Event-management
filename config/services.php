@@ -14,6 +14,22 @@ return [
     |
     */
 
+    'paggue' => [
+    'client_key' => env('PAGGUE_CLIENT_KEY'),
+    'client_secret' => env('PAGGUE_CLIENT_SECRET'),
+    'access_token' => env('PAGGUE_ACCESS_TOKEN'),
+    'company_id' => env('PAGGUE_COMPANY_ID'),
+    'webhook_secret' => env('PAGGUE_SIGNING_SECRET'),
+    'base_url' => env('PAGGUE_BASE_URL', 'https://ms.paggue.io'),
+    ],
+
+   
+
+    'mailersend' => [
+        'key' => env('MAILERSEND_API_KEY'),
+    ],
+
+
     'postmark' => [
         'token' => env('POSTMARK_TOKEN'),
     ],

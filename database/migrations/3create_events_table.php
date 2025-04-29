@@ -10,14 +10,14 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('events', function (Blueprint $table) {
-            $table->id();  // Criação do campo 'id'
-            $table->foreignId('producer_id')->constrained('producers')->onDelete('cascade');  // Referência à tabela 'producers'
-            $table->string('title');  // Título do evento
-            $table->text('description');  // Descrição do evento
-            $table->dateTime('date');  // Data do evento
-            $table->string('location');  // Local do evento
-            $table->string('banner_url');  // URL do banner do evento
-            $table->timestamps();  // Timestamps 'created_at' e 'updated_at'
+            $table->id(); 
+            $table->foreignId('producer_id')->constrained('producers')->onDelete('cascade'); 
+            $table->string('title'); 
+            $table->text('description');  
+            $table->dateTime('date'); 
+            $table->string('location');
+            $table->string('banner_url'); 
+            $table->timestamps();  
         });
     }
 

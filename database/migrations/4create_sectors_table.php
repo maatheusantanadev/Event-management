@@ -6,16 +6,19 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-   
+
     public function up(): void
     {
         Schema::create('sectors', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
+            $table->id(); 
+            $table->foreignId('event_id')->constrained('events')->onDelete('cascade');  
+            $table->string('name');  
+            $table->integer('capacity');  
+            $table->timestamps(); 
         });
     }
 
-    
+   
     public function down(): void
     {
         Schema::dropIfExists('sectors');

@@ -1,66 +1,114 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
-
 <p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
+  <a href="https://laravel.com" target="_blank">
+    <img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="300" alt="Laravel Logo">
+  </a>
 </p>
 
-## About Laravel
+<h1 align="center">Sistema de Gestão de Eventos</h1>
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+<p align="center">
+  API desenvolvida em Laravel para gestão de eventos, pagamentos, usuários e permissões.
+</p>
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+<p align="center">
+  <img src="https://img.shields.io/badge/Laravel-10.x-red.svg" alt="Laravel">
+  <img src="https://img.shields.io/badge/PHP-8.x-blue.svg" alt="PHP">
+  <img src="https://img.shields.io/badge/license-MIT-green.svg" alt="License">
+</p>
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+---
 
-## Learning Laravel
+## ✨ Funcionalidades
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+- Cadastro e autenticação de usuários
+- Controle de permissões (admin, produtor de eventos, cliente)
+- Criação e gerenciamento de eventos e setores
+- Processamento de pagamentos via [API da Paggue](https://paggue.io)
+- Envio de e-mails com Mailable
+- Notificações para administradores
+- Webhooks para confirmação de pagamento
+- Testes automatizados (com PHPUnit)
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+---
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+## 🚀 Tecnologias Utilizadas
 
-## Laravel Sponsors
+- [Laravel 10](https://laravel.com/)
+- [PHP 8.x](https://www.php.net/)
+- [MySQL/PostgreSQL](https://www.mysql.com/)
+- [Spatie Laravel Permission](https://spatie.be/docs/laravel-permission/)
+- [Paggue API](https://paggue.io)
+- [JWT Auth](https://jwt.io/) para autenticação
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+---
 
-### Premium Partners
+## ⚙️ Instalação
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
+```bash
+# Clone o repositório
+git clone https://github.com/seu-usuario/seu-repositorio.git
+cd seu-repositorio
 
-## Contributing
+# Instale as dependências
+composer install
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+# Copie o arquivo de ambiente e configure
+cp .env.example .env
 
-## Code of Conduct
+# Gere a chave da aplicação
+php artisan key:generate
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+# Configure seu banco de dados no .env e rode as migrations
+php artisan migrate --seed
 
-## Security Vulnerabilities
+# Rode o servidor local
+php artisan serve
+```
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
 
-## License
+## 🔐 Autenticação 
+A autenticação é feita via JWT. Após realizar login, utilize o token gerado no cabeçalho de cada requisição protegida:
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+Authorization: Bearer SEU_TOKEN_JWT
+
+
+## 🧪 Rodando Testes
+php artisan test
+
+Para ver a cobertura dos testes com PHPUnit:
+./vendor/bin/phpunit --coverage-html coverage/
+ou abrir arquivo index na pasta coverage-report\index.html
+
+
+## 📤 Envio de E-mails
+O sistema envia e-mails para administradores automaticamente nas seguintes situações:
+
+Criação de novo evento
+
+Você pode configurar o serviço de e-mail no .env, por exemplo:
+
+
+MAIL_MAILER=smtp
+MAIL_HOST=smtp.gmail.com
+MAIL_PORT=587
+MAIL_USERNAME=suaconta@gmail.com
+MAIL_PASSWORD=suasenha123
+MAIL_ENCRYPTION=tls
+MAIL_FROM_ADDRESS="noreply@gmail.com"
+MAIL_FROM_NAME="Sistema de Eventos"
+
+
+
+## 👥 Perfis de Usuário
+Admin: Acesso total ao sistema.
+Produtor de Eventos: Cria e edita eventos/lots/setores.
+Cliente: Compra e vizualiza ingressos.
+
+
+## 🧾 Licença
+Este projeto está licenciado sob os termos da licença MIT.
+
+## 👨‍💻 Autor
+Desenvolvido por Matheus Santana
+Entre em contato: mssantana@ecomp.uefs.br
+

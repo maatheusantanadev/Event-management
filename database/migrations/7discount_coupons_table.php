@@ -10,13 +10,13 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('discount_coupons', function (Blueprint $table) {
-            $table->id();  // ID único para o cupom
-            $table->string('code')->unique();  // Código do cupom (ex: ABC-123-XYZ)
-            $table->decimal('discount', 5, 2);  // Desconto em percentual (ex: 10.00)
-            $table->integer('max_uses');  // Máximo de usos
-            $table->integer('used_count')->default(0);  // Contagem de usos já realizados
-            $table->timestamp('expires_at');  // Data de expiração do cupom
-            $table->timestamps();  // Timestamps 'created_at' e 'updated_at'
+            $table->id();  
+            $table->string('code')->unique();  
+            $table->decimal('discount', 5, 2);  
+            $table->integer('max_uses');  
+            $table->integer('used_count')->default(0);  
+            $table->timestamp('expires_at');  
+            $table->timestamps();  
         });
     }
 

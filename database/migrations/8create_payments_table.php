@@ -10,12 +10,13 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('payments', function (Blueprint $table) {
-            $table->id();  // ID único do pagamento
-            $table->foreignId('ticket_id')->constrained('tickets')->onDelete('cascade');  // Referência ao ticket (tabela 'tickets')
-            $table->string('transaction_id')->unique();  // ID único da transação
-            $table->decimal('amount', 10, 2);  // Valor pago (com 2 casas decimais)
-            $table->enum('status', ['pendente', 'confirmado', 'falha']);  // Status do pagamento
-            $table->timestamps();  // Timestamps 'created_at' e 'updated_at'
+            $table->id();  
+            $table->foreignId('ticket_id')->constrained('tickets')->onDelete('cascade');  
+            $table->foreignId('discount_coupon_id')->nullable()->constrained('discount_coupons')->onDelete('set null');
+            $table->string('transaction_id')->unique();  
+            $table->decimal('amount', 10, 2); 
+            $table->enum('status', ['pendente', 'confirmado', 'falha']); 
+            $table->timestamps(); 
         });
     }
 

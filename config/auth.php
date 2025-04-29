@@ -42,6 +42,13 @@ return [
         ],
     ],
 
+    'guards' => [
+    'api' => [
+            'driver' => 'sanctum', // Ou 'passport', dependendo de qual estiver usando
+            'provider' => 'users',
+        ],
+    ],
+
     /*
     |--------------------------------------------------------------------------
     | User Providers

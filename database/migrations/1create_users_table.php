@@ -6,16 +6,10 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
+
     public function up()
     {
        
-
-        // Criando a tabela 'users'
         Schema::create('users', function (Blueprint $table) {
             $table->id();
             $table->string('name');
@@ -23,16 +17,12 @@ return new class extends Migration
             $table->string('password');
             $table->string('phone')->unique();
             $table->string('cpf_cnpj')->unique();
-            $table->enum('role', ['admin', 'produtor', 'cliente']); // Usando o tipo ENUM aqui
+            $table->enum('role', ['admin', 'produtor', 'cliente']); 
             $table->timestamps();
         });
     }
 
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
+   
     public function down()
     {
         // Removendo o tipo ENUM antes de deletar a tabela (se houver)
