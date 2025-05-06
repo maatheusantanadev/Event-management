@@ -46,6 +46,7 @@
 # Clone o repositório
 git clone https://github.com/maatheusantanadev/Event-management
 cd Event-management
+
 # Instale as dependências
 composer install
 
