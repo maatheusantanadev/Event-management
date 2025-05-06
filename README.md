@@ -74,8 +74,19 @@ Colletion Postman:
         docs\postman\Event Management API.postman_collection.json
 ```
 
-## 🔐 Autenticação 
+## 🔐 Autenticação e Uso de Token na API
 ``` bash
+▶️ Login
+Para se autenticar na API, envie uma requisição POST para o endpoint /api/login com as seguintes informações no corpo da requisição (JSON):
+{
+  "cpf_cnpj": "12345678907",
+  "password": "password123"
+}
+
+A API retornará um token de acesso no seguinte formato:
+
+7|ZDqTXWzhz2Us3SPNBF6tiQEC8eOHt38dWDkyjxDV02e4210d
+
 A autenticação é feita via JWT. Após realizar login, utilize o token gerado no cabeçalho de cada requisição protegida:
 
 Authorization: Bearer SEU_TOKEN_JWT
