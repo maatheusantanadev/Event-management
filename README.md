@@ -44,9 +44,8 @@
 
 ```bash
 # Clone o repositório
-git clone https://github.com/seu-usuario/seu-repositorio.git
-cd seu-repositorio
-
+git clone https://github.com/maatheusantanadev/Event-management
+cd Event-management
 # Instale as dependências
 composer install
 
