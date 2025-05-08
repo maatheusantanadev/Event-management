@@ -135,3 +135,10 @@ Este projeto está licenciado sob os termos da licença MIT.
 Desenvolvido por Matheus Santana
 Entre em contato: mssantana@ecomp.uefs.br
 ```
+
+
+
+OBS:
+``` bash
+API da PAGGUE, apesar de uma pequena estrutura presente, não está funcional.
+```
