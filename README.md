@@ -22,11 +22,9 @@
 
 - Cadastro e autenticação de usuários
 - Controle de permissões (admin, produtor de eventos, cliente)
-- Criação e gerenciamento de eventos e setores
-- Processamento de pagamentos via [API da Paggue](https://paggue.io)
+- Criação e gerenciamento de produtores/eventos/setores/lots/tickets/pagamentos/coupons
 - Envio de e-mails com Mailable
 - Notificações para administradores
-- Webhooks para confirmação de pagamento
 - Testes automatizados (com PHPUnit)
 
 ---
@@ -46,8 +44,8 @@
 
 ```bash
 # Clone o repositório
-git clone https://github.com/seu-usuario/seu-repositorio.git
-cd seu-repositorio
+git clone https://github.com/maatheusantanadev/Event-management
+cd Event-management
 
 # Instale as dependências
 composer install
@@ -65,28 +63,51 @@ php artisan migrate --seed
 php artisan serve
 ```
 
+## 🧾 Documentação
+``` bash
+Para vizualizar documentação:
+        # Rode o servidor local
+        php artisan serve
+        # Rode em seu navegador
+        http://127.0.0.1:8000/docs
+Colletion Postman:
+        docs\postman\Event Management API.postman_collection.json
+```
 
-## 🔐 Autenticação 
+## 🔐 Autenticação e Uso de Token na API
+``` bash
+▶️ Login
+Para se autenticar na API, envie uma requisição POST para o endpoint /api/login com as seguintes informações no corpo da requisição (JSON):
+{
+  "cpf_cnpj": "12345678907",
+  "password": "password123"
+}
+
+A API retornará um token de acesso no seguinte formato:
+
+7|ZDqTXWzhz2Us3SPNBF6tiQEC8eOHt38dWDkyjxDV02e4210d
+
 A autenticação é feita via JWT. Após realizar login, utilize o token gerado no cabeçalho de cada requisição protegida:
 
 Authorization: Bearer SEU_TOKEN_JWT
-
+```
 
 ## 🧪 Rodando Testes
+``` bash
 php artisan test
 
 Para ver a cobertura dos testes com PHPUnit:
 ./vendor/bin/phpunit --coverage-html coverage/
 ou abrir arquivo index na pasta coverage-report\index.html
-
+```
 
 ## 📤 Envio de E-mails
+``` bash
 O sistema envia e-mails para administradores automaticamente nas seguintes situações:
 
 Criação de novo evento
 
 Você pode configurar o serviço de e-mail no .env, por exemplo:
-
 
 MAIL_MAILER=smtp
 MAIL_HOST=smtp.gmail.com
@@ -96,19 +117,28 @@ MAIL_PASSWORD=suasenha123
 MAIL_ENCRYPTION=tls
 MAIL_FROM_ADDRESS="noreply@gmail.com"
 MAIL_FROM_NAME="Sistema de Eventos"
-
+```
 
 
 ## 👥 Perfis de Usuário
+``` bash
 Admin: Acesso total ao sistema.
 Produtor de Eventos: Cria e edita eventos/lots/setores.
 Cliente: Compra e vizualiza ingressos.
-
+```
 
 ## 🧾 Licença
 Este projeto está licenciado sob os termos da licença MIT.
 
 ## 👨‍💻 Autor
+``` bash
 Desenvolvido por Matheus Santana
 Entre em contato: mssantana@ecomp.uefs.br
+```
 
+
+
+OBS:
+``` bash
+API da PAGGUE, apesar de uma pequena estrutura presente, não está funcional.
+```
