@@ -10,7 +10,7 @@ class UserSeeder extends Seeder
 {
     public function run()
     {
-        User::create([
+       $admin = User::create([
             'name' => 'Admin Master',
             'email' => 'matheusfeira2017@gmail.com',
             'password' => Hash::make('password123'), 
@@ -18,8 +18,10 @@ class UserSeeder extends Seeder
             'cpf_cnpj' => '12345678901',
             'role' => 'admin',
         ]);
+        $admin->assignRole('admin'); 
 
-        User::create([
+
+       $produtor = User::create([
             'name' => 'Produtor Teste',
             'email' => 'produtor@example.com',
             'password' => Hash::make('password123'),
@@ -27,8 +29,10 @@ class UserSeeder extends Seeder
             'cpf_cnpj' => '12345678000199',
             'role' => 'produtor',
         ]);
+        $produtor->assignRole('produtor'); 
 
-        User::create([
+
+       $cliente = User::create([
             'name' => 'Cliente Demo',
             'email' => 'cliente@example.com',
             'password' => Hash::make('password123'),
@@ -36,5 +40,7 @@ class UserSeeder extends Seeder
             'cpf_cnpj' => '98765432100',
             'role' => 'cliente',
         ]);
+        $cliente->assignRole('cliente'); 
+
     }
 }
