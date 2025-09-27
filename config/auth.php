@@ -43,7 +43,7 @@ return [
     ],
 
     'guards' => [
-    'api' => [
+        'api' => [
             'driver' => 'sanctum', // Ou 'passport', dependendo de qual estiver usando
             'provider' => 'users',
         ],
